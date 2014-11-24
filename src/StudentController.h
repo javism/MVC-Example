@@ -13,8 +13,6 @@
 #include "Student.h"
 #include "StudentView.h"
 
-using namespace std;
-
 namespace ejemplo_mvc {
 
 class StudentController {
@@ -22,11 +20,11 @@ public:
 	StudentController(Student model, StudentView view);
 	virtual ~StudentController();
 
-	void setStudentName(string name);
-	string getStudentName(void);
+	void setStudentName(std::string name);
+	std::string getStudentName(void);
 
-	void setStudentRollNo(string rollNo);
-	string getStudentRollNo(void);
+	void setStudentRollNo(std::string rollNo);
+	std::string getStudentRollNo(void);
 
 	void updateView(void);
 

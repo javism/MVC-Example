@@ -10,8 +10,6 @@
 
 #include <string>
 
-using namespace std;
-
 namespace ejemplo_mvc {
 
 class StudentView {
@@ -19,7 +17,7 @@ public:
 	StudentView();
 	virtual ~StudentView();
 
-	void printStudentDetails(string studentName, string studentRollNo);
+	void printStudentDetails(std::string studentName, std::string studentRollNo);
 };
 
 } /* namespace ejemplo_mvc */

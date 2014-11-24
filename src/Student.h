@@ -11,8 +11,6 @@
 
 #include <string>
 
-using namespace std;
-
 namespace ejemplo_mvc {
 
 class Student {
@@ -20,15 +18,15 @@ public:
 	Student();
 	virtual ~Student();
 
-	const string& getName() const;
-	void setName(const string& name);
+	const std::string& getName() const;
+	void setName(const std::string& name);
 
-	const string& getNollNo() const;
-	void setNollNo(const string& nollNo);
+	const std::string& getNollNo() const;
+	void setNollNo(const std::string& nollNo);
 
 private:
-	string nollNo;
-	string name;
+	std::string nollNo;
+	std::string name;
 };
 
 } /* namespace ejemplo_mvc */
