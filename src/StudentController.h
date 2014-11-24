@@ -21,10 +21,10 @@ public:
 	virtual ~StudentController();
 
 	void setStudentName(std::string name);
-	std::string getStudentName(void);
+	std::string getStudentName();
 
 	void setStudentRollNo(std::string rollNo);
-	std::string getStudentRollNo(void);
+	std::string getStudentRollNo();
 
 	void updateView(void);
 

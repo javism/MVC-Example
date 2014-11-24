@@ -28,7 +28,7 @@ void StudentController::setStudentName(string name) {
 	model.setName(name);
 }
 
-string StudentController::getStudentName(void) {
+string StudentController::getStudentName() {
 	return model.getName();
 }
 
@@ -36,7 +36,7 @@ void StudentController::setStudentRollNo(string r) {
 	model.setNollNo(r);
 }
 
-string StudentController::getStudentRollNo(void) {
+string StudentController::getStudentRollNo() {
 	return model.getNollNo();
 }
 
