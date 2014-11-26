@@ -10,8 +10,14 @@
 #define STUDENT_H_
 
 #include <string>
+#include <functional>
+#include <vector>
 
 namespace ejemplo_mvc {
+
+class Student;
+
+using Listener = std::function<void(const Student&)>;
 
 class Student {
 public:
@@ -24,9 +30,16 @@ public:
 	const std::string& getNollNo() const;
 	void setNollNo(const std::string& nollNo);
 
+	void connect(Listener listener);
+	void disconnect(Listener listener);
 private:
 	std::string nollNo;
 	std::string name;
+
+	std::vector<Listener> listeners_;
+
+	void notify() const;
+
 };
 
 } /* namespace ejemplo_mvc */

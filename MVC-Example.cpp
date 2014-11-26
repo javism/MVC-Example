@@ -28,13 +28,17 @@ int main() {
 	// Create the view to print student details
 	StudentView view = StudentView();
 
-	StudentController controller = StudentController(model, view);
+	StudentController controller = StudentController(model);
 
 	// Update data
 	controller.setStudentName("Juanito");
+
+	// TODO: Eliminar porque el modelo actualizará la vista automáticamente
 	controller.updateView();
 
 	controller.setStudentName("Pepito");
+
+	// TODO: Eliminar porque el modelo actualizará la vista automáticamente
 	controller.updateView();
 
 	return 0;

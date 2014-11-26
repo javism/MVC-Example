@@ -17,7 +17,7 @@ namespace ejemplo_mvc {
 
 class StudentController {
 public:
-	StudentController(Student model, StudentView view);
+	StudentController(Student model);
 	virtual ~StudentController();
 
 	void setStudentName(std::string name);
@@ -26,11 +26,8 @@ public:
 	void setStudentRollNo(std::string rollNo);
 	std::string getStudentRollNo();
 
-	void updateView(void);
-
 private:
 	Student model;
-	StudentView view;
 };
 
 } /* namespace ejemplo_mvc */

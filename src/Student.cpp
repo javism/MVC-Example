@@ -6,6 +6,9 @@
  */
 
 #include <string>
+#include <stdexcept>
+#include <functional>
+#include <vector>
 
 #include "Student.h"
 
@@ -28,6 +31,7 @@ const string& Student::getName() const {
 
 void Student::setName(const string& name) {
 	this->name = name;
+	notify();
 }
 
 const string& Student::getNollNo() const {
@@ -36,6 +40,25 @@ const string& Student::getNollNo() const {
 
 void Student::setNollNo(const string& nollNo) {
 	this->nollNo = nollNo;
+	notify();
+}
+
+void Student::connect(Listener listener) {
+	if (listeners_.find(listener) != listeners_.end())
+	  throw std::runtime_error("Double connection");
+	listeners_.push_back(listener);
+}
+
+void Student::disconnect(Listener listener) {
+	auto iter = listeners_.find(listener);
+	if (iter == listeners_.end())
+		throw std::runtime_error("Listener not connected");
+	listeners_.erase(listener);
+}
+
+void Student::notify() const {
+  for (const auto& listener : listeners_)
+    listener(*this);
 }
 
 } /* namespace ejemplo_mvc */
