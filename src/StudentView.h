@@ -8,7 +8,7 @@
 #ifndef STUDENTVIEW_H_
 #define STUDENTVIEW_H_
 
-#include <string>
+#include "Student.h"
 
 namespace ejemplo_mvc {
 
@@ -17,7 +17,7 @@ public:
 	StudentView();
 	virtual ~StudentView();
 
-	void printStudentDetails(std::string studentName, std::string studentRollNo);
+	void printStudentDetails(Student s);
 };
 
 } /* namespace ejemplo_mvc */

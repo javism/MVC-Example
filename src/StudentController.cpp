@@ -13,10 +13,9 @@ using namespace std;
 
 namespace ejemplo_mvc {
 
-StudentController::StudentController(Student model, StudentView view) {
+StudentController::StudentController(Student model) {
 	// TODO Auto-generated constructor stub
 	this->model = model;
-	this->view = view;
 
 }
 
@@ -38,10 +37,6 @@ void StudentController::setStudentRollNo(string r) {
 
 string StudentController::getStudentRollNo() {
 	return model.getNollNo();
-}
-
-void StudentController::updateView() {
-	view.printStudentDetails(model.getName(), model.getNollNo());
 }
 
 } /* namespace ejemplo_mvc */

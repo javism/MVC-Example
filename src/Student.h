@@ -11,7 +11,7 @@
 
 #include <string>
 #include <functional>
-#include <vector>
+#include <list>
 
 namespace ejemplo_mvc {
 
@@ -30,13 +30,14 @@ public:
 	const std::string& getNollNo() const;
 	void setNollNo(const std::string& nollNo);
 
-	void connect(Listener listener);
-	void disconnect(Listener listener);
+	void connect(const Listener & listener);
+	void disconnect(const Listener & listener);
 private:
 	std::string nollNo;
 	std::string name;
 
-	std::vector<Listener> listeners_;
+	// http://www.cplusplus.com/reference/list/list/
+	std::list<Listener> listeners_;
 
 	void notify() const;
 

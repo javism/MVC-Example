@@ -10,6 +10,7 @@
 
 #include "src/StudentController.h"
 #include "src/StudentView.h"
+#include "src/StudentViewTwo.h"
 #include "src/Student.h"
 
 using namespace ejemplo_mvc;
@@ -27,19 +28,22 @@ int main() {
 
 	// Create the view to print student details
 	StudentView view = StudentView();
+	// http://en.cppreference.com/w/cpp/language/lambda
+	model.connect([&] (const Student& mo) {
+	    view.printStudentDetails(mo);
+	  });
+
+	// Add a second view to the model
+	StudentViewTwo viewtwo = StudentViewTwo();
+	model.connect([&] (const Student& mo) {
+		viewtwo.printStudentDetails(mo);
+	  });
 
 	StudentController controller = StudentController(model);
 
 	// Update data
 	controller.setStudentName("Juanito");
-
-	// TODO: Eliminar porque el modelo actualizará la vista automáticamente
-	controller.updateView();
-
 	controller.setStudentName("Pepito");
-
-	// TODO: Eliminar porque el modelo actualizará la vista automáticamente
-	controller.updateView();
 
 	return 0;
 }

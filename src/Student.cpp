@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <functional>
 #include <vector>
+#include <algorithm>
 
 #include "Student.h"
 
@@ -43,17 +44,34 @@ void Student::setNollNo(const string& nollNo) {
 	notify();
 }
 
-void Student::connect(Listener listener) {
-	if (listeners_.find(listener) != listeners_.end())
-	  throw std::runtime_error("Double connection");
+/*
+ * TODO: Arreglar comprobación existencia. Al no poder usar std::find con std::function la solución no es directa *
+ */
+void Student::connect(const Listener & listener) {
+#if 0
+	//auto iter = std::find(listeners_.begin(), listeners_.end(), listener);
+	std::list<Listener>::iterator iter = std::find(listeners_.begin(), listeners_.end(), listener);
+	if (iter == listener)
+		throw std::runtime_error("Double connection");
+#endif
 	listeners_.push_back(listener);
 }
 
-void Student::disconnect(Listener listener) {
-	auto iter = listeners_.find(listener);
+
+/*
+ * TODO: Arreglar. Al no poder usar std::find con std::function la solución no es directa *
+ */
+void Student::disconnect(const Listener & listener) {
+	// http://en.cppreference.com/w/cpp/algorithm/find
+#if 0
+    auto iter = std::find(listeners_.begin(), listeners_.end(), listener);
+
 	if (iter == listeners_.end())
 		throw std::runtime_error("Listener not connected");
 	listeners_.erase(listener);
+	listeners_.remove(listener);
+#endif
+
 }
 
 void Student::notify() const {

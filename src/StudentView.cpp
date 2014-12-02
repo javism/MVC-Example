@@ -5,7 +5,6 @@
  *      Author: javi
  */
 
-#include <string>
 #include <iostream>
 
 #include "StudentView.h"
@@ -23,12 +22,10 @@ StudentView::~StudentView() {
 	// TODO Auto-generated destructor stub
 }
 
-/* Podríamos pasarle un tipo Student directamente */
-
-void StudentView::printStudentDetails(string studentName, string studentRollNo) {
+void StudentView::printStudentDetails(Student s) {
 	cout << "Student:" << endl;
-	cout << "Name: " << studentName << endl;
-	cout << "Roll No: " << studentRollNo << endl;
+	cout << "Name: " << s.getName() << endl;
+	cout << "Roll No: " << s.getName() << endl;
 
 }
 
