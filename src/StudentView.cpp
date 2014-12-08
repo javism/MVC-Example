@@ -25,7 +25,7 @@ StudentView::~StudentView() {
 void StudentView::printStudentDetails(Student s) {
 	cout << "Student:" << endl;
 	cout << "Name: " << s.getName() << endl;
-	cout << "Roll No: " << s.getName() << endl;
+	cout << "Roll No: " << s.getNollNo() << endl;
 
 }
 

@@ -17,14 +17,6 @@ using namespace std;
 
 namespace ejemplo_mvc {
 
-Student::Student() {
-	// TODO Auto-generated constructor stub
-
-}
-
-Student::~Student() {
-	// TODO Auto-generated destructor stub
-}
 
 const string& Student::getName() const {
 	return this->name;
@@ -44,34 +36,13 @@ void Student::setNollNo(const string& nollNo) {
 	notify();
 }
 
-/*
- * TODO: Arreglar comprobación existencia. Al no poder usar std::find con std::function la solución no es directa *
- */
-void Student::connect(const Listener & listener) {
-#if 0
-	//auto iter = std::find(listeners_.begin(), listeners_.end(), listener);
-	std::list<Listener>::iterator iter = std::find(listeners_.begin(), listeners_.end(), listener);
-	if (iter == listener)
-		throw std::runtime_error("Double connection");
-#endif
-	listeners_.push_back(listener);
+Connection Student::connect(Listener l) {
+  return listeners_.insert(listeners_.end(), l);
 }
 
-
-/*
- * TODO: Arreglar. Al no poder usar std::find con std::function la solución no es directa *
- */
-void Student::disconnect(const Listener & listener) {
-	// http://en.cppreference.com/w/cpp/algorithm/find
-#if 0
-    auto iter = std::find(listeners_.begin(), listeners_.end(), listener);
-
-	if (iter == listeners_.end())
-		throw std::runtime_error("Listener not connected");
-	listeners_.erase(listener);
-	listeners_.remove(listener);
-#endif
-
+// TODO: La conexión no se elimina de la lista.
+void Student::disconnect(Connection c) {
+	listeners_.erase(c);
 }
 
 void Student::notify() const {
