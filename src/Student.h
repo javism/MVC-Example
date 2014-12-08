@@ -18,11 +18,10 @@ namespace ejemplo_mvc {
 class Student;
 
 using Listener = std::function<void(const Student&)>;
+using Connection = std::list<Listener>::iterator;
 
 class Student {
 public:
-	Student();
-	virtual ~Student();
 
 	const std::string& getName() const;
 	void setName(const std::string& name);
@@ -30,8 +29,9 @@ public:
 	const std::string& getNollNo() const;
 	void setNollNo(const std::string& nollNo);
 
-	void connect(const Listener & listener);
-	void disconnect(const Listener & listener);
+	Connection connect(Listener l);
+	void disconnect(Connection c);
+
 private:
 	std::string nollNo;
 	std::string name;

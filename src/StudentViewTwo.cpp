@@ -17,7 +17,7 @@ namespace ejemplo_mvc {
 void StudentViewTwo::printStudentDetails(Student s) {
 	cout << "\t\tESTUDIANTE:" << endl;
 	cout << "\t\tNOMBRE: " << s.getName() << endl;
-	cout << "\t\tNÚMERO: " << s.getName() << endl;
+	cout << "\t\tNÚMERO: " << s.getNollNo() << endl;
 
 }
 
