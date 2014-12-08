@@ -13,7 +13,6 @@ using namespace std;
 
 namespace ejemplo_mvc {
 
-
 void StudentViewTwo::printStudentDetails(Student s) {
 	cout << "\t\tESTUDIANTE:" << endl;
 	cout << "\t\tNOMBRE: " << s.getName() << endl;

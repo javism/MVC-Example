@@ -17,7 +17,6 @@ using namespace std;
 
 namespace ejemplo_mvc {
 
-
 const string& Student::getName() const {
 	return this->name;
 }
@@ -37,7 +36,7 @@ void Student::setNollNo(const string& nollNo) {
 }
 
 Connection Student::connect(Listener l) {
-  return listeners_.insert(listeners_.end(), l);
+	return listeners_.insert(listeners_.end(), l);
 }
 
 // TODO: La conexión no se elimina de la lista.
@@ -46,8 +45,8 @@ void Student::disconnect(Connection c) {
 }
 
 void Student::notify() const {
-  for (const auto& listener : listeners_)
-    listener(*this);
+	for (const auto& listener : listeners_)
+		listener(*this);
 }
 
 } /* namespace ejemplo_mvc */

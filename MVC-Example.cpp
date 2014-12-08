@@ -32,27 +32,33 @@ int main() {
 	StudentView view = StudentView();
 	// http://en.cppreference.com/w/cpp/language/lambda
 	Connection c1 = model.connect([&] (const Student& mo) {
-	    view.printStudentDetails(mo);
-	  });
+		view.printStudentDetails(mo);
+	});
 
 	// Add a second view to the model
 	StudentViewTwo viewtwo = StudentViewTwo();
 
 	Connection c2 = model.connect([&] (const Student& mo) {
 		viewtwo.printStudentDetails(mo);
-	  });
+	});
 
 	StudentController controller = StudentController(model);
 
 	// Update data
-	cout << " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ " << endl;
+	cout
+			<< " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ "
+			<< endl;
 	controller.setStudentName("Juanito");
-	cout << " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ " << endl;
+	cout
+			<< " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ "
+			<< endl;
 	controller.setStudentName("Pepito");
 
 	// Remove one of the views
 	model.disconnect(c1);
-	cout << " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ " << endl;
+	cout
+			<< " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ "
+			<< endl;
 	controller.setStudentName("Nuevo");
 
 	return 0;
