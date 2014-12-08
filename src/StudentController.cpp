@@ -7,6 +7,7 @@
 
 #include <string>
 
+#include "Student.h"
 #include "StudentController.h"
 
 using namespace std;
