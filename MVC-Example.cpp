@@ -45,20 +45,14 @@ int main() {
 	StudentController controller = StudentController(model);
 
 	// Update data
-	cout
-			<< " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ "
-			<< endl;
+	cout << " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ "	<< endl;
 	controller.setStudentName("Juanito");
-	cout
-			<< " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ "
-			<< endl;
+	cout << " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ "	<< endl;
 	controller.setStudentName("Pepito");
 
 	// Remove one of the views
 	model.disconnect(c1);
-	cout
-			<< " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ "
-			<< endl;
+	cout << " ------------------ Actualizamos el modelo (y la vista es notificada) ------------------ " << endl;
 	controller.setStudentName("Nuevo");
 
 	return 0;
